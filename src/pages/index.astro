@@ -5,6 +5,7 @@ import LinkedInIcon from "../components/icons/LinkedIn.astro"
 import SocialPill from "../components/SocialPill.astro";
 import GitHubIcon from "../components/icons/GitHub.astro";
 import MailIcon from "../components/icons/Mail.astro";
+import TimeLine from "../components/TimeLine.astro";
 
 ---
 
@@ -29,11 +30,16 @@ description="Contrata a Patricio Pittana para proyectos de Desarrollo web FrontE
         <SocialPill href="https://github.com/Lunatico0">
           <GitHubIcon class="size-6" />LinkedIn
         </SocialPill>
-        <SocialPill mailto="pittanapatricio@gmail.com">
+        <SocialPill href="mailto:pittanapatricio@gmail.com">
           <MailIcon class="size-6" />pittanapatricio@gmail.com
         </SocialPill>
       </nav>
     </section>
+
+    <section>
+      <TimeLine />
+    </section>
+
   </main>
 </Layout>
 
