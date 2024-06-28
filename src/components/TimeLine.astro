@@ -1,0 +1,21 @@
+---
+import TimeLineItem from "./TimeLineItem.astro"
+
+const history = [
+  {
+    date: 'octubre 2023',
+    title: 'Comienzo de la carrera de Desarrollador Web',
+    description: 'Descubro la Academis/Bootcamp de CoderHouse, investigo sobre ella y decido empezar con el curso'
+  }
+]
+---
+
+<ol class="relative border-s border-gray-200 dark:border-gray-700">
+  {
+    history.map(story => (
+      <li class="mb-10 ms-4">
+        <TimeLineItem {story} />
+      </li>
+    ))
+  }
+</ol>
