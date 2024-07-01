@@ -5,7 +5,7 @@ import LinkedInIcon from "../components/icons/LinkedIn.astro"
 import SocialPill from "../components/SocialPill.astro";
 import GitHubIcon from "../components/icons/GitHub.astro";
 import MailIcon from "../components/icons/Mail.astro";
-import TimeLine from "../components/Proyects.astro";
+import Trayectoria from "../components/Trayectoria.astro";
 import Briefcase from "../components/icons/Briefcase.astro";
 import SectionContainer from "../components/SectionContainer.astro";
 
@@ -15,21 +15,21 @@ import SectionContainer from "../components/SectionContainer.astro";
 title="Portfolio | Pittana Patricio - Desarrollador y Programador Web"
 description="Contrata a Patricio Pittana para proyectos de Desarrollo web FrontEnd"
 >
-  <main>
-    <SectionContainer class="py-20 pb-12 md:py-44 md:pb-24 px-3">
+  <main class="pl-3 pr-3 md:w-2/3 mx-auto">
+    <SectionContainer class="py-20 pb-12 md:py-28 md:pb-24 px-3">
       <h1 class="text-white text-xl md:text-5xl font-bold flex flex-row gap-x-2 md:gap-x-4 pb-4">Hola, soy Patricio Pittana.<a 
         href="https://www.linkedin.com/in/patricio-pittana-2185b6177/"
         target="_blank"
         rel="noopener"
         class="flex justify-center items-center"><Badge>Disponible para trabajar.</Badge></a></h1>
-      <h2 class="w-auto text-lg md:text-2xl text-pretty"><span class="opacity-80">Soy de Entre Rios, Argentina 🇦🇷.</span> Trainee Web Developer, <span class="text-blue-200/90">recien recibido de desarrollo web, javaScript y react.</span> Actualmente cursando BackEnd en la Academia/Bootcamp de <span class="font-semibold">CoderHouse.</span> Alumno de Ingenieria Electronica en <span class="font-semibold">Universidad Tecnologica Nacional.</span></h2>
+      <h2 class="w-auto text-lg md:text-2xl text-pretty"><span class="opacity-80">Soy de Entre Rios, Argentina 🇦🇷.</span> Trainee Front-End Web Developer, <span class="text-blue-200/90">recibido en las siguientes tecnologias: HTML, CSS, JavaScript y React.</span> Actualmente cursando BackEnd en la Academia/Bootcamp de <span class="font-semibold">CoderHouse.</span> Alumno de Ingenieria Electronica en <span class="font-semibold">Universidad Tecnologica Nacional.</span></h2>
 
       <nav class="flex flex-wrap gap-2 mt-3 md:mt-6 md:gap-x-3">
         <SocialPill href="https://www.linkedin.com/in/patricio-pittana-2185b6177/">
           <LinkedInIcon class="size-3 text-md md:size-6" />LinkedIn
         </SocialPill>
         <SocialPill href="https://github.com/Lunatico0">
-          <GitHubIcon class="size-3 text-md md:size-6" />LinkedIn
+          <GitHubIcon class="size-3 text-md md:size-6" />GitHub
         </SocialPill>
         <SocialPill href="mailto:pittanapatricio@gmail.com">
           <MailIcon class="size-3 text-md md:size-6" />pittanapatricio@gmail.com
@@ -37,12 +37,12 @@ description="Contrata a Patricio Pittana para proyectos de Desarrollo web FrontE
       </nav>
     </SectionContainer>
 
-    <SectionContainer class="pl-3" id="proyectos">
+    <SectionContainer id="trayectoria">
       <h2 class="font-semibold text-2xl mb-6 flex flex-row items-center gap-x-3">
         <Briefcase />
-        Proyectos
+        Trayectoria
       </h2>
-      <TimeLine  />
+      <Trayectoria />
     </SectionContainer>
 
   </main>

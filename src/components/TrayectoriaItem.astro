@@ -1,9 +1,16 @@
 ---
+import { string } from 'astro/zod';
+
+interface Link {
+  url: string;
+  id: string;
+}
+
 export interface Props {
   title: string;
   description: string;
   date: string;
-  link?: string;
+  link?: Link;
 }
 
 const { title, link, description, date } = Astro.props;
@@ -22,14 +29,14 @@ const { title, link, description, date } = Astro.props;
 {
   link && (
     <a
-      href={link}
+      href={link.url}
       target="_blank"
       rel="noopener noreferrer"
       class="inline-flex items-center px-4 py-2 focus:z-10 font-medium rounded-lg 
       text-sm text-gray-900 focus:text-blue-700 dark:text-gray-400 hover:text-blue-700 dark:hover:text-white 
     bg-white border border-gray-200 dark:border-gray-600 hover:bg-gray-100 focus:ring-4 focus:outline-none focus:ring-gray-100 dark:bg-gray-800 dark:hover:bg-gray-700 dark:focus:ring-gray-700"
     >
-      Saber mas
+      {link.id}
       <svg
         class="w-3 h-3 ms-2 rtl:rotate-180"
         aria-hidden="true"

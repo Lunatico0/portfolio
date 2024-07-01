@@ -1,0 +1,53 @@
+---
+import TimeLineItem from "./TrayectoriaItem.astro"
+
+const history = [
+  {
+    date: '...Actualmente',
+    title: 'Cursando BackEnd I.',
+    description: 'Continuara...'
+  },
+  {
+    date: 'Mayo 2024',
+    title: 'Curso React',
+    description: 'Comenzando el curso de React ya tenia claro que iba a desarrollar, sabiendo que debia hacer si o si un e-commerce, comence con el proyecto "Artemisa" para el emprendimiento de un familiar.',
+    link: {
+      url: 'https://artemisanogoya.vercel.app',
+      id: 'Artemisa e-Commerce'
+    }
+  },
+  {
+    date: 'Febrero 2024',
+    title: 'Curso de JavaScript.',
+    description: 'Al termiar el curso de Desarrollo Web Continuo en mi ruta de estudio con el curso de JavaScript, con el siguiente proyecto el cual es el mismo ded desarrollo web, pero con el agregadoo del e-commerce.',
+    link: {
+      url: 'https://lunatico0.github.io/ElectricidadPittana_e-Commerce/',
+      id: 'Eleectricidad Pittana e-Commerce'
+    }
+  },
+  {
+    date: 'Noviembre 2023',
+    title: 'Curso de Desarrollador Web.',
+    description: 'Despues de mucho conocimiento de Ingenieria Electronica y una base de desarrollo en programacion descubro la Academia/Bootcamp de CoderHouse, investigo sobre ella y decido empezar la carrera de FullStack. Comenzando con el siguiente proyecto.',
+    link: {
+      url: 'https://electricidad-pittana.netlify.app/',
+      id: 'Electricidad Pittana landing page'
+    }
+  },
+  {
+    date: 'Enero 2018',
+    title: 'Ing. Electronica.',
+    description: 'Termino el secundario como bachiller en ciencias economicas, y tomo la decicion de empezar la fauldad de Ingenieria Electronica en la Universidad Tecnologica Nacional.',
+  }
+]
+---
+
+<ol class="relative pl-3 border-s ml-2 border-gray-200 dark:border-gray-700">
+  {
+    history.map(story => (
+      <li class="mb-10">
+        <TimeLineItem {...story} />
+      </li>
+    ))
+  }
+</ol>
