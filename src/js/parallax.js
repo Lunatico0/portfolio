@@ -26,8 +26,8 @@ function handleOrientation(event) {
   
   console.log(x + ": en x" +  y + ": en y")
 
-  front.style.transform = `translate(${(x * 3)  / sFrontMobile}%, ${( y * 1.5) / sFrontMobile}%)`;
-  back.style.transform = `translate(${(x * 3)  / sBackMobile}%, ${( y * 1.5) / sBackMobile}%)`;
+  front.style.transform = `translate(${(x < 0 ? (x *= -3 ) : (x * 3))  / sFrontMobile}%, ${( y * 1.5) / sFrontMobile}%)`;
+  back.style.transform = `translate(${(x < 0 ? (x *= -3 ) : (x * 3))  / sBackMobile}%, ${( y * 1.5) / sBackMobile}%)`;
 }
 
 if ( DeviceOrientationEvent != undefined &&  DeviceOrientationEvent.requestPermission === "function") {
