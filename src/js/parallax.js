@@ -18,16 +18,19 @@ parallax.addEventListener('mousemove', (e) => {
 })
 
 function handleOrientation(event) {
-  const x = event.gamma;
-  const y = event.beta;
+  let x = event.gamma;
+  let y = event.beta;
+
+  const horizontal = (x < 0 ? (x *= -4 ) : (x * 4));
+  const vertical = (y < 0 ? (y *= -2 ) : (y * 2));
 
   const sFrontMobile = 75;
   const sBackMobile = 200;
   
   console.log(x + ": en x" +  y + ": en y")
 
-  front.style.transform = `translate(${(x < 0 ? (x *= -3 ) : (x * 3))  / sFrontMobile}%, ${( y * 1.5) / sFrontMobile}%)`;
-  back.style.transform = `translate(${(x < 0 ? (x *= -3 ) : (x * 3))  / sBackMobile}%, ${( y * 1.5) / sBackMobile}%)`;
+  front.style.transform = `translate(${ horizontal / sFrontMobile}%, ${vertical / sFrontMobile}%)`;
+  back.style.transform = `translate(${horizontal  / sBackMobile}%, ${vertical / sBackMobile}%)`;
 }
 
 if ( DeviceOrientationEvent != undefined &&  DeviceOrientationEvent.requestPermission === "function") {
