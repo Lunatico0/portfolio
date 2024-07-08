@@ -21,7 +21,7 @@ function handleOrientation(event) {
   let x = event.gamma;
   let y = event.beta;
 
-  const horizontal = (x < 0 ? (x *= -4 ) : (x * 4));
+  const horizontal = (x < 0 ? (x *= -8 ) : (x * 8));
   const vertical = (y < 0 ? (y *= -2 ) : (y * 2));
 
   const sFrontMobile = 75;
