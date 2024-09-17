@@ -16,20 +16,44 @@ import SectionContainer from "../components/SectionContainer.astro";
 >
   <section class="parallax">
     <div class="frontLayer">
-      <div class="frontStars stars"><ion-icon name="logo-tableau"></ion-icon></div>
-      <div class="frontStars stars"><ion-icon name="logo-tableau"></ion-icon></div>
-      <div class="frontStars stars"><ion-icon name="logo-tableau"></ion-icon></div>
-      <div class="frontStars stars"><ion-icon name="logo-tableau"></ion-icon></div>
-      <div class="frontStars stars"><ion-icon name="logo-tableau"></ion-icon></div>
+      <div class="frontStars stars">
+        <ion-icon name="logo-tableau"></ion-icon>
+      </div>
+      <div class="frontStars stars">
+        <ion-icon name="logo-tableau"></ion-icon>
+      </div>
+      <div class="frontStars stars">
+        <ion-icon name="logo-tableau"></ion-icon>
+      </div>
+      <div class="frontStars stars">
+        <ion-icon name="logo-tableau"></ion-icon>
+      </div>
+      <div class="frontStars stars">
+        <ion-icon name="logo-tableau"></ion-icon>
+      </div>
     </div>
     <div class="backLayer">
-      <div class="backStars stars"><ion-icon name="logo-tableau"></ion-icon></div>
-      <div class="backStars stars"><ion-icon name="logo-tableau"></ion-icon></div>
-      <div class="backStars stars"><ion-icon name="logo-tableau"></ion-icon></div>
-      <div class="backStars stars"><ion-icon name="logo-tableau"></ion-icon></div>
-      <div class="backStars stars"><ion-icon name="logo-tableau"></ion-icon></div>
-      <div class="backStars stars"><ion-icon name="logo-tableau"></ion-icon></div>
-      <div class="backStars stars"><ion-icon name="logo-tableau"></ion-icon></div>
+      <div class="backStars stars">
+        <ion-icon name="logo-tableau"></ion-icon>
+      </div>
+      <div class="backStars stars">
+        <ion-icon name="logo-tableau"></ion-icon>
+      </div>
+      <div class="backStars stars">
+        <ion-icon name="logo-tableau"></ion-icon>
+      </div>
+      <div class="backStars stars">
+        <ion-icon name="logo-tableau"></ion-icon>
+      </div>
+      <div class="backStars stars">
+        <ion-icon name="logo-tableau"></ion-icon>
+      </div>
+      <div class="backStars stars">
+        <ion-icon name="logo-tableau"></ion-icon>
+      </div>
+      <div class="backStars stars">
+        <ion-icon name="logo-tableau"></ion-icon>
+      </div>
     </div>
 
     <main class="pl-3 pr-3 md:w-2/3 mx-auto">
@@ -42,18 +66,28 @@ import SectionContainer from "../components/SectionContainer.astro";
             target="_blank"
             rel="noopener"
             class="flex justify-center items-center"
-            ><Badge>Disponible para trabajar.</Badge></a>
+            ><Badge>Disponible para trabajar.</Badge></a
+          >
         </h1>
         <h2 class="w-auto text-lg md:text-2xl text-pretty">
-          <span class="opacity-80">Soy de Entre Rios, Argentina 🇦🇷.</span> Trainee
-          Front-End Web Developer, <span class="text-blue-200/90"
-            >recibido en las siguientes tecnologias: HTML, CSS, JavaScript y
-            React.</span
-          > Actualmente cursando BackEnd en la Academia/Bootcamp de <span
-            class="font-semibold">CoderHouse.</span
-          > Alumno de Ingenieria Electronica en <span class="font-semibold"
-            >Universidad Tecnologica Nacional.</span>
+          <span class="opacity-80">Soy de Entre Ríos, Argentina 🇦🇷.</span> Desarrollador
+          Front-End con experiencia en <span class="text-blue-200/90"
+            >HTML, CSS, JavaScript, y React</span
+          >. Actualmente, me encuentro especializándome en BackEnd en <span
+            class="font-semibold">CoderHouse</span
+          >
+          con foco en Node.js, Express, y bases de datos como MongoDB.
+          Soy estudiante de Ingeniería Electrónica en la <span
+            class="font-semibold">Universidad Tecnológica Nacional</span
+          >.
         </h2>
+
+        <h3 class="text-lg md:text-xl mt-4 text-pretty">
+          Me apasiona crear soluciones web funcionales y atractivas, y busco
+          oportunidades para colaborar en proyectos innovadores que utilicen
+          tecnologías modernas. Estoy siempre aprendiendo y mejorando mis
+          habilidades técnicas.
+        </h3>
 
         <nav class="flex flex-wrap gap-2 mt-3 md:mt-6 md:gap-x-3">
           <SocialPill
@@ -83,7 +117,6 @@ import SectionContainer from "../components/SectionContainer.astro";
       </SectionContainer>
     </main>
   </section>
-
 </Layout>
 
 <style>
@@ -155,7 +188,7 @@ import SectionContainer from "../components/SectionContainer.astro";
     right: 30%;
     width: 11%;
   }
-  
+
   /* ---Back--- */
   .backLayer div:nth-child(1) {
     top: -20%;
@@ -167,7 +200,6 @@ import SectionContainer from "../components/SectionContainer.astro";
     bottom: -20%;
     right: 20%;
     width: 32%;
-    
   }
 
   .backLayer div:nth-child(3) {
@@ -200,4 +232,7 @@ import SectionContainer from "../components/SectionContainer.astro";
     width: 34%;
   }
 
+  /* #about{
+    background-image: url(/logoBueno.svg);
+  } */
 </style>
