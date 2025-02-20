@@ -1,14 +1,23 @@
-<nav class="bg-gray-900 text-white p-4">
+<nav class="bg-gray-900 text-white p-4 fixed w-full">
   <div class="container mx-auto flex justify-between items-center">
-    <h1 class="text-xl font-bold">Mi Portafolio</h1>
-    <button id="menu-toggle" class="md:hidden">
-      ☰
-    </button>
+    <img src="/logoBlanco.svg" alt="Logo" class="h-12 object-cover" />
+    <button id="menu-toggle" class="md:hidden"> ☰ </button>
     <ul id="menu" class="hidden md:flex gap-4">
-      <li><a href="/" class="hover:text-gray-400">Inicio</a></li>
-      <li><a href="/about-me" class="hover:text-gray-400">Sobre Mí</a></li>
-      <li><a href="/proyectos" class="hover:text-gray-400">Proyectos</a></li>
-      <li><a href="/contacto" class="hover:text-gray-400">Contacto</a></li>
+      <li>
+        <a href="#inicio" class="hover:text-gray-400">Inicio</a>
+      </li>
+      <li>
+        <a href="#about-me" class="hover:text-gray-400">Sobre mi</a>
+      </li>
+      <li>
+        <a href="#proyectos" class="hover:text-gray-400">Proyectos</a>
+      </li>
+      <li>
+        <a href="#trayectoria" class="hover:text-gray-400">Trayectoria</a>
+      </li>
+      <li>
+        <a href="#contacto" class="hover:text-gray-400">Contacto</a>
+      </li>
     </ul>
   </div>
 </nav>
@@ -20,6 +29,25 @@
 
     menuToggle.addEventListener("click", () => {
       menu.classList.toggle("hidden");
+    });
+  });
+
+  document.addEventListener("DOMContentLoaded", () => {
+    const links = document.querySelectorAll("nav a[href^='#']");
+
+    links.forEach((link) => {
+      link.addEventListener("click", function (e) {
+        e.preventDefault();
+        const targetId = this.getAttribute("href").substring(1);
+        const targetSection = document.getElementById(targetId);
+
+        if (targetSection) {
+          window.scrollTo({
+            top: targetSection.offsetTop - 50,
+            behavior: "smooth",
+          });
+        }
+      });
     });
   });
 </script>

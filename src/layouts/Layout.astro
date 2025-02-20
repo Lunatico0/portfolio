@@ -2,14 +2,27 @@
 import Navbar from "../components/Navbar.astro";
 import Footer from "../components/Footer.astro";
 ---
-<!DOCTYPE html>
+
+<!doctype html>
 <html lang="es">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      id="favicon-light"
+      rel="icon"
+      href="/logoNegro.svg"
+      media="(prefers-color-scheme: light)"
+    />
+    <link
+      id="favicon-dark"
+      rel="icon"
+      href="/logoBlanco.svg"
+      media="(prefers-color-scheme: dark)"
+    />
     <title>Patricio Pittana | Portfolio</title>
   </head>
-  <body class="bg-gray-900 text-white">
+  <body class="bg-gray-900 text-white overflow-x-hidden scroll-smooth">
     <Navbar />
     <slot />
     <Footer />
