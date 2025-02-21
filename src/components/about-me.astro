@@ -1,0 +1,41 @@
+<section id="about-me" class="relative min-h-screen max-w-3xl mx-auto py-10 px-4">
+  <h1 class="text-4xl font-bold text-white">Sobre Mí</h1>
+  <p class="text-gray-400 mt-4">
+    Soy un <span class="text-blue-400">desarrollador backend</span> con experiencia
+    en la creación de APIs escalables y optimización de código. Me apasiona trabajar
+    con tecnologías como <strong>Node.js, Express, MongoDB y Firebase</strong>.
+  </p>
+  <p class="text-gray-400 mt-2">
+    También cuento con conocimientos en autenticación segura con <strong
+      >JWT y OAuth2</strong
+    >, despliegue en <strong>Docker y Vercel</strong>, y metodologías ágiles
+    como Kanban.
+  </p>
+  <style>
+    #about-me::after {
+      content: "";
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      width: 250px;
+      height: 250px;
+      background: url("/logos/miLogo.svg") no-repeat center;
+      background-size: contain;
+      opacity: 0.6;
+      pointer-events: none;
+    }
+
+    #about-me::before {
+      content: "";
+      position: absolute;
+      bottom: 20px;
+      left: 20px;
+      width: 180px;
+      height: 180px;
+      background: url("/logos/codeIcon.svg") no-repeat center;
+      background-size: contain;
+      opacity: 0.6;
+      pointer-events: none;
+    }
+  </style>
+</section>
