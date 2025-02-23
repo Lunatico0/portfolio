@@ -1,15 +1,57 @@
 ---
-const { title, description, link, tech } = Astro.props;
+const { title, description, link, tech, images } = Astro.props;
+import Carousel from "./Carousel.astro";
 ---
-<div class="bg-gray-800 p-4 rounded-lg shadow-lg">
-  <h2 class="text-xl font-semibold text-white">{title}</h2>
-  <p class="text-gray-400 mt-2">{description}</p>
-  <div class="mt-2">
-    {tech.map((t) => (
-      <span class="bg-gray-700 text-gray-300 px-2 py-1 text-xs rounded-md mr-2">{t}</span>
-    ))}
+
+<div
+  class="relative w-[90vw] md:w-[70vw] max-w-5xl h-auto flex flex-col md:flex-row bg-gray-800 rounded-lg shadow-lg z-10 mt-20 md:mt-44"
+>
+
+  <!-- 📌 Carrusel arriba en móvil, izquierda en desktop -->
+  <div class="w-full md:w-1/2 h-auto md:h-full rounded-t-lg md:rounded-l-lg overflow-hidden">
+    <Carousel items={images.desktop} />
   </div>
-  <a href={link} target="_blank" class="block mt-4 text-blue-400 hover:underline">
-    Ver proyecto →
-  </a>
+
+  <!-- 📌 Información abajo en móvil, derecha en desktop -->
+  <div class="w-full md:w-1/2 p-6 z-20 bg-inherit rounded-b-lg md:rounded-r-lg">
+    <h2 class="text-lg md:text-xl font-semibold text-white">{title}</h2>
+    <p class="text-gray-400 mt-2 text-sm md:text-base">{description}</p>
+    <div class="mt-2 flex flex-wrap gap-2">
+      {
+        tech.map((t: string) => (
+          <span class="bg-gray-700 text-gray-300 px-2 py-1 text-xs rounded-md">
+            {t}
+          </span>
+        ))
+      }
+    </div>
+    <a
+      href={link}
+      target="_blank"
+      class="block mt-4 text-blue-400 hover:underline"
+    >
+      Ver proyecto →
+    </a>
+  </div>
+
+  <!-- 📌 Abanico de imágenes móviles -->
+  <div
+    class="absolute md:top-40 md:left-1/2 transform md:-translate-x-1/2 md:-translate-y-44 -z-10 w-full max-w-7xl flex justify-center items-center"
+  >
+    {
+      images.mobile.map((img: string, index: number) => (
+        <img
+          src={img}
+          class={`absolute w-24 sm:w-32 md:w-40 h-auto aspect-[9/20] duration-300 origin-bottom rounded-lg transition-all hover:scale-110 z-0 hover:z-[1] ${
+            index === 0 ? "-rotate-[16deg] hover:-rotate-[8deg] -translate-x-12 sm:-translate-x-20 md:-translate-x-40 translate-y-2 sm:translate-y-4 hover:-translate-y-10 sm:hover:-translate-y-28" :
+            index === 1 ? "-rotate-[8deg] hover:-rotate-[4deg] -translate-x-6 sm:-translate-x-10 md:-translate-x-20 hover:-translate-y-8 sm:hover:-translate-y-24" :
+            index === 2 ? "rotate-0 -translate-y-1 sm:-translate-y-2 hover:-translate-y-6 sm:hover:-translate-y-20" :
+            index === 3 ? "rotate-[8deg] hover:rotate-[4deg] translate-x-6 sm:translate-x-10 md:translate-x-20 hover:-translate-y-8 sm:hover:-translate-y-24" :
+            index === 4 && "rotate-[16deg] hover:rotate-[8deg] translate-x-12 sm:translate-x-20 md:translate-x-40 translate-y-2 sm:translate-y-4 hover:-translate-y-10 sm:hover:-translate-y-28"
+          }`}
+        />
+      ))
+    }
+  </div>
+
 </div>
