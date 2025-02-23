@@ -35,7 +35,7 @@ const history = [
 
 <section
   id="trayectoria"
-  class="relative min-h-screen max-w-4xl mx-auto py-10 px-4"
+  class="relative max-w-4xl mx-auto py-10 px-4"
 >
   <h1 class="text-4xl font-bold text-white text-center">
     Trayectoria Profesional
@@ -62,31 +62,5 @@ const history = [
       ))
     }
   </div>
-  <style>
-    #trayectoria::after {
-      content: "";
-      position: absolute;
-      top: 20px;
-      left: 20px;
-      width: 220px;
-      height: 220px;
-      background: url("/logos/miLogo.svg") no-repeat center;
-      background-size: contain;
-      opacity: 0.6;
-      pointer-events: none;
-    }
 
-    #trayectoria::before {
-      content: "";
-      position: absolute;
-      bottom: 50px;
-      right: 50px;
-      width: 200px;
-      height: 200px;
-      background: url("/logos/codeIcon.svg") no-repeat center;
-      background-size: contain;
-      opacity: 0.6;
-      pointer-events: none;
-    }
-  </style>
 </section>
