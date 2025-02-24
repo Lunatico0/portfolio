@@ -1,19 +1,20 @@
 ---
 const { title, description, link, tech, images } = Astro.props;
 import Carousel from "./Carousel.astro";
+console.log(images.desktop);
 ---
 
 <div
-  class="relative w-[90vw] md:w-[70vw] max-w-5xl h-auto flex flex-col md:flex-row bg-gray-800 rounded-lg shadow-lg z-10 mt-20 md:mt-44"
+  class="relative w-[90vw] md:w-[70vw] max-w-5xl flex flex-col md:flex-row bg-gray-800 rounded-lg shadow-lg z-10 mt-32 md:mt-44"
 >
 
   <!-- 📌 Carrusel arriba en móvil, izquierda en desktop -->
-  <div class="w-full md:w-1/2 h-auto md:h-full rounded-t-lg md:rounded-l-lg overflow-hidden">
+  <div class="w-full md:w-1/2 h-auto md:h-full overflow-hidden">
     <Carousel items={images.desktop} />
   </div>
 
   <!-- 📌 Información abajo en móvil, derecha en desktop -->
-  <div class="w-full md:w-1/2 p-6 z-20 bg-inherit rounded-b-lg md:rounded-r-lg">
+  <div class="w-full md:w-1/2 p-4 z-20 rounded-r-lg min-h-full bg-inherit">
     <h2 class="text-lg md:text-xl font-semibold text-white">{title}</h2>
     <p class="text-gray-400 mt-2 text-sm md:text-base">{description}</p>
     <div class="mt-2 flex flex-wrap gap-2">
@@ -42,12 +43,12 @@ import Carousel from "./Carousel.astro";
       images.mobile.map((img: string, index: number) => (
         <img
           src={img}
-          class={`absolute w-24 sm:w-32 md:w-40 h-auto aspect-[9/20] duration-300 origin-bottom rounded-lg transition-all hover:scale-110 z-0 hover:z-[1] ${
-            index === 0 ? "-rotate-[16deg] hover:-rotate-[8deg] -translate-x-12 sm:-translate-x-20 md:-translate-x-40 translate-y-2 sm:translate-y-4 hover:-translate-y-10 sm:hover:-translate-y-28" :
-            index === 1 ? "-rotate-[8deg] hover:-rotate-[4deg] -translate-x-6 sm:-translate-x-10 md:-translate-x-20 hover:-translate-y-8 sm:hover:-translate-y-24" :
-            index === 2 ? "rotate-0 -translate-y-1 sm:-translate-y-2 hover:-translate-y-6 sm:hover:-translate-y-20" :
-            index === 3 ? "rotate-[8deg] hover:rotate-[4deg] translate-x-6 sm:translate-x-10 md:translate-x-20 hover:-translate-y-8 sm:hover:-translate-y-24" :
-            index === 4 && "rotate-[16deg] hover:rotate-[8deg] translate-x-12 sm:translate-x-20 md:translate-x-40 translate-y-2 sm:translate-y-4 hover:-translate-y-10 sm:hover:-translate-y-28"
+          class={`absolute w-36 md:w-40 h-auto aspect-[9/20] duration-300 origin-bottom rounded-lg transition-all hover:scale-110 z-0 hover:z-[1] ${
+            index === 0 ? "-rotate-[16deg] hover:-rotate-[8deg] -translate-x-12 md:-translate-x-36 translate-y-2 hover:-translate-y-16" :
+            index === 1 ? "-rotate-[8deg] hover:-rotate-[4deg] -translate-x-7 md:-translate-x-16 hover:-translate-y-10" :
+            index === 2 ? "rotate-0 -translate-y-1 hover:-translate-y-8" :
+            index === 3 ? "rotate-[8deg] hover:rotate-[4deg] translate-x-7 md:translate-x-16 hover:-translate-y-10" :
+            index === 4 && "rotate-[16deg] hover:rotate-[8deg] translate-x-12 md:translate-x-36 translate-y-2 hover:-translate-y-16"
           }`}
         />
       ))
