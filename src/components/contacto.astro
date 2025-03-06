@@ -1,7 +1,5 @@
 ---
-import { IconBrandWhatsapp } from "@tabler/icons-react";
-import { IconBrandLinkedin } from "@tabler/icons-react";
-import { IconMail } from "@tabler/icons-react";
+import { IconBrandWhatsapp, IconBrandLinkedin, IconMail, IconDownload } from "@tabler/icons-react";
 ---
 
 <section
@@ -15,31 +13,54 @@ import { IconMail } from "@tabler/icons-react";
     Puedes contactarme a través de mis redes o llenando el formulario.
   </p>
 
-  <!-- 🔹 Redes Sociales -->
-  <div class="flex gap-4 mb-4">
-    <a
-      href="https://www.linkedin.com/in/patricio-pittana-2185b6177/"
-      target="_blank"
-      class="text-white text-2xl hover:text-cyan-400 transition duration-300"
-      aria-label="LinkedIn"
-    >
-      <IconBrandLinkedin stroke={1} />
-    </a>
-    <a
-      href="https://wa.me/5493435417146"
-      target="_blank"
-      class="text-white text-2xl hover:text-green-400 transition duration-300"
-      aria-label="WhatsApp"
-    >
-      <IconBrandWhatsapp stroke={1} />
-    </a>
-    <a
-      href="mailto:pittanapatricio@gmail.com"
-      class="text-white text-2xl hover:text-gray-400 transition duration-300"
-      aria-label="Email"
-    >
-      <IconMail stroke={1} />
-    </a>
+  <!-- 🔹 Redes Sociales + Tooltip -->
+  <div class="flex gap-6 mb-6 relative">
+    <div class="group relative flex flex-col items-center">
+      <a
+        href="https://www.linkedin.com/in/patricio-pittana-2185b6177/"
+        target="_blank"
+        class="text-white text-3xl hover:text-cyan-400 transition duration-300"
+        aria-label="LinkedIn"
+      >
+        <IconBrandLinkedin stroke={1} />
+      </a>
+      <span class="tooltip">LinkedIn</span>
+    </div>
+
+    <div class="group relative flex flex-col items-center">
+      <a
+        href="https://wa.me/5493435417146"
+        target="_blank"
+        class="text-white text-3xl hover:text-green-400 transition duration-300"
+        aria-label="WhatsApp"
+      >
+        <IconBrandWhatsapp stroke={1} />
+      </a>
+      <span class="tooltip">WhatsApp</span>
+    </div>
+
+    <div class="group relative flex flex-col items-center">
+      <a
+        href="mailto:pittanapatricio@gmail.com"
+        class="text-white text-3xl hover:text-gray-400 transition duration-300"
+        aria-label="Email"
+      >
+        <IconMail stroke={1} />
+      </a>
+      <span class="tooltip">Enviar Email</span>
+    </div>
+
+    <div class="group relative flex flex-col items-center">
+      <a
+        href="/CV/CV_Patricio_Pittana.pdf"
+        download="CV/CV_Patricio_Pittana.pdf"
+        class="text-white text-3xl hover:text-green-400 transition duration-300"
+        aria-label="CV"
+      >
+        <IconDownload stroke={1} />
+      </a>
+      <span class="tooltip">Descargar CV</span>
+    </div>
   </div>
 
   <!-- 🔹 Formulario -->
@@ -91,3 +112,26 @@ import { IconMail } from "@tabler/icons-react";
     </button>
   </form>
 </section>
+
+<style>
+  .tooltip {
+    position: absolute;
+    bottom: -30px;
+    background-color: rgba(0, 0, 0, 0.8);
+    color: white;
+    padding: 6px 10px;
+    border-radius: 6px;
+    font-size: 0.875rem;
+    white-space: nowrap;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(5px);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+  }
+
+  .group:hover .tooltip {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+  }
+</style>
