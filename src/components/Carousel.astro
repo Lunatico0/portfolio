@@ -2,56 +2,55 @@
 const { items, className } = Astro.props;
 ---
 
-<div class={`relative w-full ${className}`}>
+<div class={`relative w-full ${className} overflow-hidden carousel`}>
   <!-- Contenedor del slider -->
-  <div
-    id="slider-container"
-    class="flex transition-transform duration-500 ease-in-out w-full"
-  >
-    {
-      items.map((item: string) => (
-        <div class="w-full flex-shrink-0">
-          <img src={item} class="w-full h-auto object-cover rounded-lg" />
-        </div>
-      ))
-    }
+  <div class="slider-container flex transition-transform duration-500 ease-in-out w-full">
+    {items.map((item: any) => (
+      <div class="w-full flex-shrink-0">
+        {typeof item === 'string' ? (
+          <!-- Si es una imagen -->
+          <img src={item} class="w-full h-auto object-cover rounded-l-lg" />
+        ) : (
+          <!-- Si es un proyecto completo -->
+          <slot />
+        )}
+      </div>
+    ))}
   </div>
 
   <!-- Botón Anterior -->
-  <button
-    id="prev-slide"
-    class="absolute left-2 top-1/2 transform -translate-y-1/2 bg-black/40 text-white px-2 pt-1 pb-2 rounded-lg shadow-md"
-  >
+  <button class="prev-slide absolute left-2 top-1/2 transform -translate-y-1/2 bg-black/40 text-white px-2 pt-1 pb-2 rounded-lg shadow-md">
     ‹
   </button>
 
   <!-- Botón Siguiente -->
-  <button
-    id="next-slide"
-    class="absolute right-2 top-1/2 transform -translate-y-1/2 bg-black/40 text-white px-2 pt-1 pb-2 rounded-lg shadow-md"
-  >
+  <button class="next-slide absolute right-2 top-1/2 transform -translate-y-1/2 bg-black/40 text-white px-2 pt-1 pb-2 rounded-lg shadow-md">
     ›
   </button>
+</div>
 
-  <script>
-    const slider = document.getElementById("slider-container");
-    const totalSlides = slider ? slider.children.length : 0;
-    let currentIndex = 0;
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    document.querySelectorAll(".carousel").forEach((carousel) => {
+      const slider = carousel.querySelector(".slider-container");
+      const prevButton = carousel.querySelector(".prev-slide");
+      const nextButton = carousel.querySelector(".next-slide");
+      const totalSlides = slider.children.length;
+      let currentIndex = 0;
 
-    if (slider) {
       function updateSlide() {
         slider.style.transform = `translateX(-${currentIndex * 100}%)`;
       }
 
-      document.getElementById("prev-slide")?.addEventListener("click", () => {
+      prevButton.addEventListener("click", () => {
         currentIndex = (currentIndex - 1 + totalSlides) % totalSlides;
         updateSlide();
       });
 
-      document.getElementById("next-slide")?.addEventListener("click", () => {
+      nextButton.addEventListener("click", () => {
         currentIndex = (currentIndex + 1) % totalSlides;
         updateSlide();
       });
-    }
-  </script>
-</div>
+    });
+  });
+</script>
