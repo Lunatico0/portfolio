@@ -1,5 +1,10 @@
 ---
-import { IconBrandWhatsapp, IconBrandLinkedin, IconMail, IconDownload } from "@tabler/icons-react";
+import {
+  IconBrandWhatsapp,
+  IconBrandLinkedin,
+  IconMail,
+  IconDownload,
+} from "@tabler/icons-react";
 ---
 
 <section
@@ -14,7 +19,7 @@ import { IconBrandWhatsapp, IconBrandLinkedin, IconMail, IconDownload } from "@t
   </p>
 
   <!-- 🔹 Redes Sociales + Tooltip -->
-  <div class="flex gap-6 mb-6 relative">
+  <div class="flex gap-6 mb-6 relative bg-gray-900 bg-opacity-80 rounded px-4 py-2">
     <div class="group relative flex flex-col items-center">
       <a
         href="https://www.linkedin.com/in/patricio-pittana-2185b6177/"
@@ -50,15 +55,14 @@ import { IconBrandWhatsapp, IconBrandLinkedin, IconMail, IconDownload } from "@t
       <span class="tooltip">Enviar Email</span>
     </div>
 
+    <!-- Botón para abrir el modal -->
     <div class="group relative flex flex-col items-center">
-      <a
-        href="/CV/CV_Patricio_Pittana.pdf"
-        download="CV/CV_Patricio_Pittana.pdf"
+      <button
+        onclick="abrirModalCV()"
         class="text-white text-3xl hover:text-green-400 transition duration-300"
-        aria-label="CV"
       >
         <IconDownload stroke={1} />
-      </a>
+      </button>
       <span class="tooltip">Descargar CV</span>
     </div>
   </div>
@@ -113,6 +117,67 @@ import { IconBrandWhatsapp, IconBrandLinkedin, IconMail, IconDownload } from "@t
   </form>
 </section>
 
+<!-- 🔹 Modal de Descarga de CV (Por defecto oculto) -->
+<div id="modal-cv" class="fixed inset-0 bg-black bg-opacity-50 hidden items-center justify-center">
+  <div class="bg-gray-900 text-white p-6 rounded-lg shadow-lg w-96 relative">
+    <h2 class="text-xl font-bold">Descargar CV</h2>
+    <p class="text-gray-400 mt-2">Seleccione el idioma:</p>
+
+    <div class="mt-4">
+      <label class="flex items-center gap-2">
+        <input type="radio" name="cvIdioma" value="es" checked class="accent-green-500"> Español
+      </label>
+      <label class="flex items-center gap-2 mt-2">
+        <input type="radio" name="cvIdioma" value="en" class="accent-green-500"> English
+      </label>
+    </div>
+
+    <div class="mt-6 flex justify-between">
+      <button onclick="descargarCV()" class="bg-green-600 hover:bg-green-700 px-4 py-2 rounded">Descargar</button>
+      <button onclick="verOnline()" class="bg-gray-700 hover:bg-gray-600 px-4 py-2 rounded">Ver Online</button>
+    </div>
+
+    <button onclick="cerrarModalCV()" class="absolute top-2 right-2 text-gray-400 hover:text-white">✕</button>
+  </div>
+</div>
+
+<script>
+  window.abrirModalCV = () => {
+    const modal = document.getElementById("modal-cv");
+    modal.classList.remove("hidden");
+    modal.classList.add("flex");
+  };
+
+  window.cerrarModalCV = () => {
+    const modal = document.getElementById("modal-cv");
+    modal.classList.remove("flex");
+    modal.classList.add("hidden");
+  };
+
+  window.descargarCV = () => {
+  const idioma = document.querySelector('input[name="cvIdioma"]:checked').value;
+  const link = document.createElement("a"); // Crear un enlace dinámico
+  link.href = `/CV/CV_Patricio_Pittana_${idioma}.pdf`; // Ruta del archivo
+  link.download = `CV_Patricio_Pittana_${idioma}.pdf`; // Nombre del archivo al descargar
+  document.body.appendChild(link); // Agregar el enlace al DOM
+  link.click(); // Simular el clic para descargar
+  document.body.removeChild(link); // Remover el enlace después de descargar
+  cerrarModalCV(); // Cerrar el modal
+};
+
+// window.descargarCV = () => {
+  //   const idioma = document.querySelector('input[name="cvIdioma"]:checked').value;
+  //   window.location.href = `/CV/CV_Patricio_Pittana_${idioma}.pdf`;
+  //   cerrarModalCV();
+  // };
+
+  window.verOnline = () => {
+    const idioma = document.querySelector('input[name="cvIdioma"]:checked').value;
+    window.open(`/CV/CV_Patricio_Pittana_${idioma}.pdf`, "_blank");
+    cerrarModalCV();
+  };
+</script>
+
 <style>
   .tooltip {
     position: absolute;
@@ -126,7 +191,9 @@ import { IconBrandWhatsapp, IconBrandLinkedin, IconMail, IconDownload } from "@t
     opacity: 0;
     visibility: hidden;
     transform: translateY(5px);
-    transition: opacity 0.3s ease, transform 0.3s ease;
+    transition:
+      opacity 0.3s ease,
+      transform 0.3s ease;
   }
 
   .group:hover .tooltip {

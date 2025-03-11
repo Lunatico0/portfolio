@@ -1,0 +1,52 @@
+[
+  {
+    "title": "Artemisa E-commerce",
+    "id": "artemisa",
+    "description":
+      "Desarrollo de una tienda en línea con Node.js, Express y MongoDB.",
+    "link": "https://www.artemisa-pvc.com",
+    "tech": ["Node.js", "Express", "MongoDB", "JWT", "MercadoPago"],
+    "images": {
+      "desktop": [
+        "/img/proyecto1/desktop.png",
+        "/img/proyecto1/desktop1.png",
+        "/img/proyecto1/desktop2.png",
+        "/img/proyecto1/desktop3.png"
+      ],
+      "mobile": [
+        "/img/proyecto1/proyecto1-mobile1.png",
+        "/img/proyecto1/proyecto1-mobile2.png",
+        "/img/proyecto1/proyecto1-mobile3.png",
+        "/img/proyecto1/proyecto1-mobile4.png",
+        "/img/proyecto1/proyecto1-mobile5.png"
+      ]
+    },
+    "details": "Detalles del proyecto",
+    "github": "gitHub del proyecto"
+  },
+  {
+    "title": "Electricidad Pittana",
+    "id": "electricidad-pittana",
+    "description": "Sitio web para un taller de electricidad automotriz.",
+    "link": "https://electricidad-pittana.netlify.app/",
+    "tech": ["HTML", "CSS", "Bootstrap"],
+    "images": {
+      "desktop": [
+        "/img/proyecto2/desktop.png",
+        "/img/proyecto2/desktop2.png",
+        "/img/proyecto2/desktop3.png",
+        "/img/proyecto2/desktop4.png",
+        "/img/proyecto2/desktop5.png"
+      ],
+      "mobile": [
+        "/img/proyecto2/proyecto2-mobile1.png",
+        "/img/proyecto2/proyecto2-mobile2.png",
+        "/img/proyecto2/proyecto2-mobile3.png",
+        "/img/proyecto2/proyecto2-mobile4.png",
+        "/img/proyecto2/proyecto2-mobile5.png"
+      ]
+    },
+    "details": "Detalles del proyecto",
+    "github": "gitHub del proyecto"
+  }
+]

@@ -1,6 +1,10 @@
+---
+const isHome = Astro.url.pathname === "/"; // Detectar si estamos en la home
+---
+
 <nav class="bg-gray-900 text-white p-4 fixed w-full z-50">
   <div class="container mx-auto flex justify-between items-center">
-    <a href="#inicio" class="hover:text-gray-400">
+    <a href="/" class="hover:text-gray-400">
       <img src="/logoBlanco.svg" alt="Logo" class="h-12 object-cover" />
     </a>
 
@@ -12,10 +16,18 @@
     <!-- Menú de navegación -->
     <ul id="menu"
       class="absolute top-16 left-0 w-full bg-gray-900 text-center flex-col gap-4 py-4 md:static md:flex md:flex-row md:w-auto md:gap-6 md:py-0 hidden">
-      <li><a href="#about-me" class="block py-2 hover:text-gray-400">Sobre mi</a></li>
-      <li><a href="#proyectos" class="block py-2 hover:text-gray-400">Proyectos</a></li>
-      <li><a href="#trayectoria" class="block py-2 hover:text-gray-400">Trayectoria</a></li>
-      <li><a href="#contacto" class="block py-2 hover:text-gray-400">Contacto</a></li>
+      <li>
+        <a href={isHome ? "#about-me" : "/#about-me"} class="hover:text-gray-400">Sobre mi</a>
+      </li>
+      <li>
+        <a href={isHome ? "#proyectos" : "/#proyectos"} class="hover:text-gray-400">Proyectos</a>
+      </li>
+      <li>
+        <a href={isHome ? "#trayectoria" : "/#trayectoria"} class="hover:text-gray-400">Trayectoria</a>
+      </li>
+      <li>
+        <a href={isHome ? "#contacto" : "/#contacto"} class="hover:text-gray-400">Contacto</a>
+      </li>
     </ul>
   </div>
 </nav>

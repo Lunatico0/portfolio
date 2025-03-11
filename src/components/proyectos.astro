@@ -1,49 +1,17 @@
-<section id="proyectos" class="relative py-10 flex flex-col items-center justify-center overflow-hidden bg-cover bg-center">
+---
+import ProjectCard from "./ProjectCard.astro";
+
+import projects from "../data/projects.json";
+---
+
+<section
+  id="proyectos"
+  class="relative py-10 flex flex-col items-center justify-center bg-cover bg-center"
+>
   <h2 class="text-4xl font-bold text-white mb-10">Mis Proyectos</h2>
 
   <!-- Contenedor de proyectos -->
-  <div class="w-full max-w-6xl flex flex-wrap justify-center gap-20">
-
-    <!-- PROYECTO 1 -->
-    <div class="relative w-full flex justify-center items-center">
-      <!-- Imagen Desktop -->
-      <img src="/img/proyecto1/desktop.png" alt="Proyecto 1 Desktop"
-        class="relative w-full md:w-96 lg:w-[70%] shadow-xl rounded-lg transition-all overflow-hidden duration-500 hover:scale-125">
-
-      <!-- Abanico de imágenes Mobile -->
-      <div class="absolute w-full max-w-7xl flex justify-center items-center">
-        <img src="/img/proyecto1/proyecto1-mobile1.png" alt="Mobile 1"
-          class="abanico-img w-20 md:w-40 h-auto aspect-[9/20] transition-all duration-300 origin-bottom absolute shadow-md rounded-lg hover:scale-125 hover:z-[1] -rotate-[20deg] hover:-rotate-[10deg] -translate-x-20">
-        <img src="/img/proyecto1/proyecto1-mobile2.png" alt="Mobile 2"
-          class="abanico-img w-20 md:w-40 h-auto aspect-[9/20] transition-all duration-300 origin-bottom absolute shadow-md rounded-lg hover:scale-125 hover:z-[1] -rotate-[10deg] hover:-rotate-[5deg] -translate-x-10">
-        <img src="/img/proyecto1/proyecto1-mobile3.png" alt="Mobile 3"
-          class="abanico-img w-20 md:w-40 h-auto aspect-[9/20] transition-all duration-300 origin-bottom absolute shadow-md rounded-lg hover:scale-125 hover:z-[1]">
-        <img src="/img/proyecto1/proyecto1-mobile4.png" alt="Mobile 4"
-          class="abanico-img w-20 md:w-40 h-auto aspect-[9/20] transition-all duration-300 origin-bottom absolute shadow-md rounded-lg hover:scale-125 hover:z-[1] rotate-[10deg] hover:rotate-[5deg] translate-x-10">
-        <img src="/img/proyecto1/proyecto1-mobile5.png" alt="Mobile 5"
-          class="abanico-img w-20 md:w-40 h-auto aspect-[9/20] transition-all duration-300 origin-bottom absolute shadow-md rounded-lg hover:scale-125 hover:z-[1] rotate-[20deg] hover:rotate-[10deg] translate-x-20">
-      </div>
-    </div>
-
-    <!-- PROYECTO 2 -->
-    <div class="relative w-full flex justify-center items-center">
-      <!-- Imagen Desktop -->
-      <img src="/img/proyecto2/desktop.png" alt="Proyecto 2 Desktop"
-        class="relative w-full md:w-96 lg:w-[70%] shadow-xl rounded-lg transition-all overflow-hidden duration-500 hover:scale-125">
-
-      <!-- Abanico de imágenes Mobile -->
-      <div class="absolute w-full max-w-7xl flex justify-center items-center">
-        <img src="/img/proyecto2/proyecto2-mobile1.png" alt="Mobile 1"
-          class="abanico-img w-20 md:w-40 h-auto aspect-[9/20] transition-all duration-300 origin-bottom absolute shadow-md rounded-lg hover:scale-125 hover:z-[1] -rotate-[20deg] hover:-rotate-[10deg] -translate-x-20">
-        <img src="/img/proyecto2/proyecto2-mobile2.png" alt="Mobile 2"
-          class="abanico-img w-20 md:w-40 h-auto aspect-[9/20] transition-all duration-300 origin-bottom absolute shadow-md rounded-lg hover:scale-125 hover:z-[1] -rotate-[10deg] hover:-rotate-[5deg] -translate-x-10">
-        <img src="/img/proyecto2/proyecto2-mobile3.png" alt="Mobile 3"
-          class="abanico-img w-20 md:w-40 h-auto aspect-[9/20] transition-all duration-300 origin-bottom absolute shadow-md rounded-lg hover:scale-125 hover:z-[1]">
-        <img src="/img/proyecto2/proyecto2-mobile4.png" alt="Mobile 4"
-          class="abanico-img w-20 md:w-40 h-auto aspect-[9/20] transition-all duration-300 origin-bottom absolute shadow-md rounded-lg hover:scale-125 hover:z-[1] rotate-[10deg] hover:rotate-[5deg] translate-x-10">
-        <img src="/img/proyecto2/proyecto2-mobile5.png" alt="Mobile 5"
-          class="abanico-img w-20 md:w-40 h-auto aspect-[9/20] transition-all duration-300 origin-bottom absolute shadow-md rounded-lg hover:scale-125 hover:z-[1] rotate-[20deg] hover:rotate-[10deg] translate-x-20">
-      </div>
-    </div>
+  <div class="flex flex-col items-center justify-center gap-16">
+    {projects.map((project) => <ProjectCard {...project} />)}
   </div>
 </section>

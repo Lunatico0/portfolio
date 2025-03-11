@@ -1,12 +1,11 @@
 ---
-const { title, description, link, tech, images } = Astro.props;
+const { id, title, description, link, tech, images } = Astro.props;
 import Carousel from "./Carousel.astro";
 ---
 
 <div
   class="relative w-[90vw] md:w-[70vw] max-w-5xl flex flex-col md:flex-row bg-gray-800 rounded-lg shadow-lg z-10 mt-32 md:mt-44"
 >
-
   <!-- 📌 Carrusel arriba en móvil, izquierda en desktop -->
   <div class="w-full md:w-1/2 h-auto md:h-full overflow-hidden">
     <Carousel items={images.desktop} />
@@ -32,6 +31,12 @@ import Carousel from "./Carousel.astro";
     >
       Ver proyecto →
     </a>
+    <a
+      href={`/proyectos/${id}`}
+      class="bg-blue-600 text-white px-4 py-2 rounded-md"
+    >
+      Ver más →
+    </a>
   </div>
 
   <!-- 📌 Abanico de imágenes móviles -->
@@ -43,15 +48,19 @@ import Carousel from "./Carousel.astro";
         <img
           src={img}
           class={`absolute w-36 md:w-40 h-auto aspect-[9/20] duration-300 origin-bottom rounded-lg transition-all hover:scale-110 z-0 hover:z-[1] ${
-            index === 0 ? "-rotate-[16deg] hover:-rotate-[8deg] -translate-x-12 md:-translate-x-36 translate-y-2 hover:-translate-y-16" :
-            index === 1 ? "-rotate-[8deg] hover:-rotate-[4deg] -translate-x-7 md:-translate-x-16 hover:-translate-y-10" :
-            index === 2 ? "rotate-0 -translate-y-1 hover:-translate-y-8" :
-            index === 3 ? "rotate-[8deg] hover:rotate-[4deg] translate-x-7 md:translate-x-16 hover:-translate-y-10" :
-            index === 4 && "rotate-[16deg] hover:rotate-[8deg] translate-x-12 md:translate-x-36 translate-y-2 hover:-translate-y-16"
+            index === 0
+              ? "-rotate-[16deg] hover:-rotate-[8deg] -translate-x-12 md:-translate-x-36 translate-y-2 hover:-translate-y-16"
+              : index === 1
+                ? "-rotate-[8deg] hover:-rotate-[4deg] -translate-x-7 md:-translate-x-16 hover:-translate-y-10"
+                : index === 2
+                  ? "rotate-0 -translate-y-1 hover:-translate-y-8"
+                  : index === 3
+                    ? "rotate-[8deg] hover:rotate-[4deg] translate-x-7 md:translate-x-16 hover:-translate-y-10"
+                    : index === 4 &&
+                      "rotate-[16deg] hover:rotate-[8deg] translate-x-12 md:translate-x-36 translate-y-2 hover:-translate-y-16"
           }`}
         />
       ))
     }
   </div>
-
 </div>
